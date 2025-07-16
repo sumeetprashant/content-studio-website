@@ -24,7 +24,7 @@ import "./App.css";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 const API = `${BACKEND_URL}/api`;
 
 // Enhanced Services Data
@@ -767,7 +767,7 @@ const Home = () => {
       const response = await axios.get(`${API}/`);
       console.log(response.data.message);
     } catch (e) {
-      console.error(e, `errored out requesting / api`);
+      console.log('API not available - running in demo mode');
     }
   };
 

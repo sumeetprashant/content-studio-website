@@ -18,7 +18,9 @@ import {
   Brain,
   Zap,
   Play,
-  Pause
+  Pause,
+  Menu,
+  X
 } from "lucide-react";
 import "./App.css";
 
@@ -27,7 +29,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 const API = `${BACKEND_URL}/api`;
 
-// Enhanced Services Data
+// Enhanced Services Data with Consistent Icons
 const services = {
   production: [
     {
@@ -36,7 +38,7 @@ const services = {
       label: 'Per Day',
       description: 'State-of-the-art acoustically treated studio with multiple sets and backdrops',
       features: ['Professional Crew Included', '4K Multi-Camera Setup', 'Expert Lighting Team', 'Multiple Set Designs'],
-      icon: <Monitor className="w-full h-full" strokeWidth={1.5} />,
+      icon: <Monitor className="service-icon-consistent" strokeWidth={2} />,
       premium: false
     },
     {
@@ -45,7 +47,7 @@ const services = {
       label: 'Starting From',
       description: 'Complete podcast production with our expert team and premium equipment',
       features: ['Multi-Camera Recording', 'Professional Audio', 'Full Post-Production', 'Distribution Support'],
-      icon: <Mic className="w-full h-full" strokeWidth={1.5} />,
+      icon: <Mic className="service-icon-consistent" strokeWidth={2} />,
       premium: true
     },
     {
@@ -54,7 +56,7 @@ const services = {
       label: 'Quote',
       description: 'Professional corporate video production with cinematic quality',
       features: ['In-Studio or On-Location', 'Full Production Crew', 'Cinematic Quality', 'Brand Storytelling'],
-      icon: <Video className="w-full h-full" strokeWidth={1.5} />,
+      icon: <Video className="service-icon-consistent" strokeWidth={2} />,
       premium: false
     },
     {
@@ -63,7 +65,7 @@ const services = {
       label: 'Quote',
       description: 'Social media content and digital marketing videos',
       features: ['Social Media Ready', 'Multiple Formats', 'Quick Turnaround', 'Trend-Focused'],
-      icon: <Camera className="w-full h-full" strokeWidth={1.5} />,
+      icon: <Camera className="service-icon-consistent" strokeWidth={2} />,
       premium: false
     }
   ],
@@ -74,7 +76,7 @@ const services = {
       label: 'Per Hour',
       description: 'AI-powered voice enhancement and noise reduction',
       features: ['Real-time Processing', 'Voice Clarity', 'Noise Reduction', 'Multiple Languages'],
-      icon: <Brain className="w-full h-full" strokeWidth={1.5} />,
+      icon: <Headphones className="service-icon-consistent" strokeWidth={2} />,
       premium: false
     },
     {
@@ -83,7 +85,7 @@ const services = {
       label: 'Per Project',
       description: 'Enhance your videos with cutting-edge AI technology',
       features: ['4K Upscaling', 'Color Correction', 'Auto-Edit Features', 'Smart Transitions'],
-      icon: <Sparkles className="w-full h-full" strokeWidth={1.5} />,
+      icon: <Sparkles className="service-icon-consistent" strokeWidth={2} />,
       premium: true
     },
     {
@@ -92,7 +94,7 @@ const services = {
       label: 'Custom Package',
       description: 'AI-generated content tailored to your brand',
       features: ['Brand-Specific Content', 'Multiple Variants', 'A/B Testing Ready', 'Unlimited Revisions'],
-      icon: <Zap className="w-full h-full" strokeWidth={1.5} />,
+      icon: <Brain className="service-icon-consistent" strokeWidth={2} />,
       premium: false
     }
   ]
@@ -149,6 +151,7 @@ const ContentStudioApp = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Initialize theme
   useEffect(() => {
@@ -189,30 +192,30 @@ const ContentStudioApp = () => {
       }
     }, 100);
 
-    // Enhanced Journey steps animation with spectacular effects
+    // Enhanced Journey steps animation - snappier timing
     ScrollTrigger.create({
       trigger: '.journey-grid',
-      start: 'top 70%',
+      start: 'top 75%',
       onEnter: () => {
         // Set initial states for journey steps
-        gsap.set('.journey-step', { opacity: 0, y: 100, scale: 0.8, rotation: 5 });
+        gsap.set('.journey-step', { opacity: 0, y: 60, scale: 0.9, rotation: 3 });
         
         gsap.to('.journey-step', {
           opacity: 1,
           y: 0,
           scale: 1,
           rotation: 0,
-          duration: 1.2,
-          stagger: 0.2,
-          ease: 'elastic.out(1, 0.5)',
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out',
           onComplete: () => {
             // Add hover animations to journey steps
             document.querySelectorAll('.journey-step').forEach(step => {
               step.addEventListener('mouseenter', () => {
                 gsap.to(step, {
-                  scale: 1.05,
-                  y: -10,
-                  duration: 0.3,
+                  scale: 1.03,
+                  y: -8,
+                  duration: 0.25,
                   ease: 'power2.out'
                 });
               });
@@ -221,7 +224,7 @@ const ContentStudioApp = () => {
                 gsap.to(step, {
                   scale: 1,
                   y: 0,
-                  duration: 0.3,
+                  duration: 0.25,
                   ease: 'power2.out'
                 });
               });
@@ -229,50 +232,48 @@ const ContentStudioApp = () => {
           }
         });
         
-        // Animate journey numbers with spectacular effect
+        // Animate journey numbers with snappy effect
         gsap.from('.journey-number', {
           scale: 0,
-          rotation: 360,
-          duration: 1,
-          stagger: 0.1,
-          ease: 'back.out(1.7)',
-          delay: 0.5
+          rotation: 180,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: 'back.out(1.4)',
+          delay: 0.2
         });
       }
     });
 
-    // Enhanced Service cards animation with 3D effects
+    // Premium Service cards animation - creative and distinctive
     ScrollTrigger.create({
       trigger: '.services-grid',
-      start: 'top 70%',
+      start: 'top 75%',
       onEnter: () => {
-        // Set initial states for service cards
+        // Set initial states with creative transforms
         gsap.set('.service-card', { 
           opacity: 0, 
-          y: 100, 
-          scale: 0.9, 
-          rotationX: 45,
-          transformPerspective: 1000
+          scale: 0.9,
+          y: 80,
+          rotationY: 15
         });
         
         gsap.to('.service-card', {
           opacity: 1,
-          y: 0,
           scale: 1,
-          rotationX: 0,
-          duration: 1.2,
-          stagger: 0.15,
-          ease: 'power3.out',
+          y: 0,
+          rotationY: 0,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: 'back.out(1.2)',
           onComplete: () => {
-            // Add dynamic hover effects to service cards
+            // Premium hover effects with creative flair
             document.querySelectorAll('.service-card').forEach(card => {
               card.addEventListener('mouseenter', () => {
                 gsap.to(card, {
                   scale: 1.05,
                   y: -15,
-                  rotationY: 5,
-                  boxShadow: '0 20px 40px rgba(0, 255, 136, 0.3)',
-                  duration: 0.4,
+                  rotationY: 3,
+                  duration: 0.3,
                   ease: 'power2.out'
                 });
               });
@@ -282,8 +283,7 @@ const ContentStudioApp = () => {
                   scale: 1,
                   y: 0,
                   rotationY: 0,
-                  boxShadow: '0 8px 32px rgba(31, 38, 135, 0.1)',
-                  duration: 0.4,
+                  duration: 0.3,
                   ease: 'power2.out'
                 });
               });
@@ -291,25 +291,25 @@ const ContentStudioApp = () => {
           }
         });
         
-        // Animate service icons with rotation effect
-        gsap.from('.service-icon', {
-          scale: 0,
-          rotation: 180,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: 'back.out(1.7)',
-          delay: 0.3
+        // Animate service titles with elegant reveal
+        gsap.from('.service-title-prominent', {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          stagger: 0.08,
+          ease: 'power2.out',
+          delay: 0.2
         });
       }
     });
 
-    // Add spectacular magnetic button effects
+    // Enhanced magnetic button effects - snappier timing
     const addMagneticEffect = () => {
       document.querySelectorAll('.cta-primary, .cta-secondary, .service-cta').forEach(button => {
         button.addEventListener('mouseenter', (e) => {
           gsap.to(button, {
-            scale: 1.1,
-            duration: 0.3,
+            scale: 1.05,
+            duration: 0.25,
             ease: 'power2.out'
           });
         });
@@ -319,7 +319,7 @@ const ContentStudioApp = () => {
             scale: 1,
             x: 0,
             y: 0,
-            duration: 0.3,
+            duration: 0.25,
             ease: 'power2.out'
           });
         });
@@ -330,9 +330,9 @@ const ContentStudioApp = () => {
           const y = e.clientY - rect.top - rect.height / 2;
           
           gsap.to(button, {
-            x: x * 0.3,
-            y: y * 0.3,
-            duration: 0.2,
+            x: x * 0.2,
+            y: y * 0.2,
+            duration: 0.15,
             ease: 'power2.out'
           });
         });
@@ -364,12 +364,64 @@ const ContentStudioApp = () => {
       });
     };
     
+    // Premium cinematic header text reveals - fixed for cross-browser
+    const createHeaderReveals = () => {
+      // Split text into characters for reveal animation
+      const headers = document.querySelectorAll('.section-title, .category-title, .contact h2');
+      
+      headers.forEach(header => {
+        // Skip if already processed
+        if (header.querySelector('span')) return;
+        
+        const text = header.textContent.trim();
+        header.innerHTML = '';
+        header.style.whiteSpace = 'nowrap';
+        header.style.overflow = 'visible';
+        
+        // Create spans for each character with stable transforms
+        [...text].forEach((char, i) => {
+          const span = document.createElement('span');
+          span.textContent = char === ' ' ? '\u00A0' : char;
+          span.style.display = 'inline-block';
+          span.style.opacity = '0';
+          span.style.transform = 'translateY(30px) scale(0.9)';
+          span.style.transformOrigin = 'center bottom';
+          span.style.backfaceVisibility = 'hidden';
+          span.style.webkitFontSmoothing = 'antialiased';
+          span.style.mozOsxFontSmoothing = 'grayscale';
+          span.style.textRendering = 'optimizeLegibility';
+          span.style.willChange = 'transform, opacity';
+          header.appendChild(span);
+        });
+      });
+      
+      // Animate headers on scroll with stable timing
+      headers.forEach(header => {
+        ScrollTrigger.create({
+          trigger: header,
+          start: 'top 85%',
+          onEnter: () => {
+            const chars = header.querySelectorAll('span');
+            gsap.to(chars, {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.5,
+              stagger: 0.03,
+              ease: 'power2.out'
+            });
+          }
+        });
+      });
+    };
+    
     // Initialize all effects
     setTimeout(() => {
       addMagneticEffect();
+      createHeaderReveals();
       animateParticles();
       createParallaxEffect();
-    }, 1000);
+    }, 300);
 
     // Vertical navigation
     setupVerticalNavigation();
@@ -447,6 +499,11 @@ const ContentStudioApp = () => {
       scrollTo: `#${sectionId}`,
       ease: 'power3.inOut'
     });
+    setMobileMenuOpen(false); // Close mobile menu after navigation
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
@@ -484,6 +541,55 @@ const ContentStudioApp = () => {
       <header className="header">
         <div className="header-content">
           <a href="/" className="logo">Content Studio</a>
+          
+          {/* Mobile Menu Button */}
+          <button 
+            className="mobile-menu-toggle"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="menu-icon" strokeWidth={2} />
+            ) : (
+              <Menu className="menu-icon" strokeWidth={2} />
+            )}
+          </button>
+          
+          {/* Mobile Navigation Menu */}
+          <nav className={`mobile-nav ${mobileMenuOpen ? 'mobile-nav-open' : ''}`}>
+            <div className="mobile-nav-content">
+              <button 
+                className="mobile-nav-item"
+                onClick={() => scrollToSection('home')}
+              >
+                Home
+              </button>
+              <button 
+                className="mobile-nav-item"
+                onClick={() => scrollToSection('portfolio')}
+              >
+                Portfolio
+              </button>
+              <button 
+                className="mobile-nav-item"
+                onClick={() => scrollToSection('studio')}
+              >
+                Studio Services
+              </button>
+              <button 
+                className="mobile-nav-item"
+                onClick={() => scrollToSection('ai')}
+              >
+                AI Services
+              </button>
+              <button 
+                className="mobile-nav-item"
+                onClick={() => scrollToSection('contact')}
+              >
+                Contact
+              </button>
+            </div>
+          </nav>
         </div>
       </header>
 
@@ -491,60 +597,224 @@ const ContentStudioApp = () => {
         <section className="hero" id="home">
           <div className="hero-container">
             <div className="hero-content">
-              <h1 className="hero-title">Where Legends Record</h1>
+              <h1 className="hero-title">
+                India's Premier <br />
+                <span className="hero-highlight">Podcast & Video</span> <br />
+                Production Studio
+              </h1>
               <p className="hero-subtitle">
-                India's most advanced podcast and video production facility. 
-                Premium studio space, cutting-edge AI technology, legendary results.
+                From corporate giants to rising creators, we've produced 500+ hours of premium content. 
+                State-of-the-art facilities, AI-powered post-production, and legendary results.
               </p>
               <div className="hero-ctas">
                 <button 
                   className="cta-primary"
                   onClick={() => scrollToSection('contact')}
                 >
-                  Book Studio Time
+                  Book Studio Tour
                 </button>
                 <button 
                   className="cta-secondary"
-                  onClick={() => scrollToSection('journey')}
+                  onClick={() => scrollToSection('portfolio')}
                 >
-                  Our Process
+                  See Our Work
                 </button>
               </div>
+            </div>
+            <div className="hero-visual">
+              <div className="floating-element element-1"></div>
+              <div className="floating-element element-2"></div>
+              <div className="floating-element element-3"></div>
+              <div className="hero-glow"></div>
             </div>
           </div>
         </section>
 
-        <section className="journey" id="journey">
-          <div className="journey-container">
-            <h2 className="journey-title">Your Creative Journey</h2>
-            <div className="journey-grid">
-              <div className="journey-step">
-                <div className="journey-number">01</div>
-                <h3 className="journey-step-title">Discovery</h3>
-                <p className="journey-step-description">
-                  We understand your vision and craft the perfect production strategy tailored to your needs.
-                </p>
+        <section className="portfolio" id="portfolio">
+          <div className="portfolio-container">
+            <div className="section-header">
+              <h2 className="section-title">Trusted by Industry Leaders</h2>
+              <p className="section-subtitle">
+                We've helped brands across industries create content that converts and captivates
+              </p>
+            </div>
+            
+            <div className="client-logos">
+              <div className="logos-track">
+                <div className="logo-item">
+                  <div className="logo-placeholder">Microsoft</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Amazon</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Google</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Netflix</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Spotify</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Apple</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Adobe</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Tesla</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Uber</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Airbnb</div>
+                </div>
+                {/* Duplicate for seamless loop */}
+                <div className="logo-item">
+                  <div className="logo-placeholder">Microsoft</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Amazon</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Google</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Netflix</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Spotify</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Apple</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Adobe</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Tesla</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Uber</div>
+                </div>
+                <div className="logo-item">
+                  <div className="logo-placeholder">Airbnb</div>
+                </div>
               </div>
-              <div className="journey-step">
-                <div className="journey-number">02</div>
-                <h3 className="journey-step-title">Creation</h3>
-                <p className="journey-step-description">
-                  Our skilled team brings your vision to life in our premium studio with multiple sets and backdrops.
-                </p>
-              </div>
-              <div className="journey-step">
-                <div className="journey-number">03</div>
-                <h3 className="journey-step-title">Enhancement</h3>
-                <p className="journey-step-description">
-                  AI-powered post-production and expert editing ensure your content stands out from the crowd.
-                </p>
-              </div>
-              <div className="journey-step">
-                <div className="journey-number">04</div>
-                <h3 className="journey-step-title">Launch</h3>
-                <p className="journey-step-description">
-                  Your legendary content is ready to captivate audiences and drive results.
-                </p>
+            </div>
+
+            <div className="testimonials-section">
+              <div className="testimonials-track">
+                <div className="testimonial-card">
+                  <div className="testimonial-content">
+                    <div className="testimonial-text">
+                      "The team at Content Studio transformed our podcast from amateur to professional. 
+                      The AI-powered editing saved us weeks of work, and the final product exceeded all expectations."
+                    </div>
+                    <div className="testimonial-author">
+                      <div className="author-avatar">
+                        <div className="avatar-placeholder">SJ</div>
+                      </div>
+                      <div className="author-info">
+                        <div className="author-name">Sarah Johnson</div>
+                        <div className="author-title">Head of Content, TechCorp</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="testimonial-card">
+                  <div className="testimonial-content">
+                    <div className="testimonial-text">
+                      "Professional setup, incredible results. Our corporate video series became our most 
+                      successful marketing campaign. The team's attention to detail is unmatched."
+                    </div>
+                    <div className="testimonial-author">
+                      <div className="author-avatar">
+                        <div className="avatar-placeholder">MR</div>
+                      </div>
+                      <div className="author-info">
+                        <div className="author-name">Michael Rodriguez</div>
+                        <div className="author-title">CMO, StartupX</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="testimonial-card">
+                  <div className="testimonial-content">
+                    <div className="testimonial-text">
+                      "From concept to launch, Content Studio handled everything. The AI voice enhancement 
+                      made our podcast sound like a major production. Highly recommend!"
+                    </div>
+                    <div className="testimonial-author">
+                      <div className="author-avatar">
+                        <div className="avatar-placeholder">AP</div>
+                      </div>
+                      <div className="author-info">
+                        <div className="author-name">Anjali Patel</div>
+                        <div className="author-title">Founder, CreativeMinds</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="testimonial-card">
+                  <div className="testimonial-content">
+                    <div className="testimonial-text">
+                      "Outstanding quality and service. Our brand video got 2M views in the first week. 
+                      The studio's expertise in AI-powered content creation is game-changing."
+                    </div>
+                    <div className="testimonial-author">
+                      <div className="author-avatar">
+                        <div className="avatar-placeholder">RK</div>
+                      </div>
+                      <div className="author-info">
+                        <div className="author-name">Raj Kumar</div>
+                        <div className="author-title">Brand Director, InnovateTech</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Duplicate for seamless loop */}
+                <div className="testimonial-card">
+                  <div className="testimonial-content">
+                    <div className="testimonial-text">
+                      "The team at Content Studio transformed our podcast from amateur to professional. 
+                      The AI-powered editing saved us weeks of work, and the final product exceeded all expectations."
+                    </div>
+                    <div className="testimonial-author">
+                      <div className="author-avatar">
+                        <div className="avatar-placeholder">SJ</div>
+                      </div>
+                      <div className="author-info">
+                        <div className="author-name">Sarah Johnson</div>
+                        <div className="author-title">Head of Content, TechCorp</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="testimonial-card">
+                  <div className="testimonial-content">
+                    <div className="testimonial-text">
+                      "Professional setup, incredible results. Our corporate video series became our most 
+                      successful marketing campaign. The team's attention to detail is unmatched."
+                    </div>
+                    <div className="testimonial-author">
+                      <div className="author-avatar">
+                        <div className="avatar-placeholder">MR</div>
+                      </div>
+                      <div className="author-info">
+                        <div className="author-name">Michael Rodriguez</div>
+                        <div className="author-title">CMO, StartupX</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -561,9 +831,8 @@ const ContentStudioApp = () => {
             <div className="services-grid">
               {services.production.map((service, index) => (
                 <div key={index} className={`service-card ${service.premium ? 'premium' : ''}`}>
-                  <div className="service-icon">{service.icon}</div>
-                  <div className="service-header">
-                    <h3 className="service-title">{service.title}</h3>
+                  <div className="service-header-new">
+                    <h3 className="service-title-prominent">{service.title}</h3>
                     <div className="service-price">
                       <div className="price-label">{service.label}</div>
                       <div className="price-value">{service.price}</div>
@@ -601,9 +870,8 @@ const ContentStudioApp = () => {
             <div className="services-grid">
               {services.ai.map((service, index) => (
                 <div key={index} className={`service-card ${service.premium ? 'premium' : ''}`}>
-                  <div className="service-icon">{service.icon}</div>
-                  <div className="service-header">
-                    <h3 className="service-title">{service.title}</h3>
+                  <div className="service-header-new">
+                    <h3 className="service-title-prominent">{service.title}</h3>
                     <div className="service-price">
                       <div className="price-label">{service.label}</div>
                       <div className="price-value">{service.price}</div>
@@ -633,7 +901,7 @@ const ContentStudioApp = () => {
         <section className="contact" id="contact">
           <div className="contact-container">
             <div className="contact-info">
-              <h2>Let's Create Something Legendary</h2>
+              <h2>Create Awesomeness</h2>
               <p className="contact-description">
                 Ready to elevate your content with our premium studio and AI-powered production? 
                 Let's discuss your vision and bring it to life.
@@ -780,7 +1048,7 @@ const Home = () => {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/content-studio-website">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude login)",
+      "Bash(npm start)",
+      "Bash(npm run build:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}

@@ -1,70 +1,257 @@
-# Getting Started with Create React App
+# Content Studio - Premium Podcast & Video Production Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Content Studio](https://img.shields.io/badge/Content%20Studio-Live-brightgreen)
+![React](https://img.shields.io/badge/React-19.0.0-blue)
+![GSAP](https://img.shields.io/badge/GSAP-3.13.0-green)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-success)
 
-## Available Scripts
+## 🌟 Overview
 
-In the project directory, you can run:
+Content Studio is India's premier podcast and video production facility featuring state-of-the-art equipment, AI-powered post-production, and professional content creation services. This website showcases our services with stunning GSAP animations, glass morphism design, and mobile-responsive interface.
 
-### `npm start`
+## 🚀 Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Production Site:** [https://sumeetprashant.github.io/content-studio-website/](https://sumeetprashant.github.io/content-studio-website/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+- **🎨 Modern Design:** Glass morphism with dark/light theme toggle
+- **⚡ GSAP Animations:** Smooth, cinematic animations with ScrollTrigger
+- **📱 Mobile-First:** Fully responsive design with mobile navigation
+- **🎯 Service Showcase:** Premium and standard service offerings
+- **🔮 AI Integration:** Highlighting AI-powered content enhancement
+- **📧 Contact Form:** Integrated contact system with theme-aware styling
+- **🌙 Dark Theme:** Consistent dark theme with subtle gold accents
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tech Stack
 
-### `npm run build`
+- **Frontend:** React 19.0.0
+- **Animation:** GSAP 3.13.0 with ScrollTrigger & ScrollToPlugin
+- **Build Tool:** CRACO 7.1.0 (Create React App Configuration Override)
+- **Styling:** Custom CSS with CSS Variables for theming
+- **Icons:** Lucide React 0.525.0
+- **Deployment:** GitHub Pages with gh-pages
+- **Package Manager:** npm/yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📋 Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Before running this project locally, ensure you have:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Node.js** (v16.0.0 or higher) - [Download here](https://nodejs.org/)
+- **npm** (v7.0.0 or higher) or **yarn** (v1.22.0 or higher)
+- **Git** - [Download here](https://git-scm.com/)
 
-### `npm run eject`
+## 🏠 Local Development Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Clone the Repository
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/sumeetprashant/content-studio-website.git
+cd content-studio-website
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 2. Install Dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Using npm:
+```bash
+npm install
+```
 
-## Learn More
+Or using yarn:
+```bash
+yarn install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. Start Development Server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Using npm:
+```bash
+npm start
+```
 
-### Code Splitting
+Or using yarn:
+```bash
+yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 4. View in Browser
 
-### Analyzing the Bundle Size
+Open your browser and navigate to:
+```
+http://localhost:3000/content-studio-website
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The application will automatically reload when you make changes to the source files.
 
-### Making a Progressive Web App
+## 📦 Available Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Development
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
 
 ### Deployment
+- `npm run deploy` - Builds and deploys to GitHub Pages
+- `npm run predeploy` - Automatically runs before deploy (builds the app)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🌐 Hosting & Deployment Options
 
-### `npm run build` fails to minify
+### Option 1: GitHub Pages (Current Setup)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Automatic Deployment:**
+1. Push changes to the main branch
+2. Run deployment command:
+   ```bash
+   npm run deploy
+   ```
+3. Site will be available at: `https://yourusername.github.io/content-studio-website/`
+
+**Setup GitHub Pages:**
+1. Go to your repository settings
+2. Navigate to "Pages" section
+3. Select "Deploy from a branch"
+4. Choose "gh-pages" branch
+5. Save settings
+
+### Option 2: Netlify
+
+1. **Connect Repository:**
+   - Go to [Netlify](https://netlify.com)
+   - Click "New site from Git"
+   - Connect your GitHub repository
+
+2. **Build Settings:**
+   ```
+   Build command: npm run build
+   Publish directory: build
+   ```
+
+3. **Environment Variables:**
+   ```
+   PUBLIC_URL: /
+   ```
+
+### Option 3: Vercel
+
+1. **Deploy with Vercel:**
+   ```bash
+   npm i -g vercel
+   vercel
+   ```
+
+2. **Or connect via dashboard:**
+   - Go to [Vercel](https://vercel.com)
+   - Import your GitHub repository
+   - Deploy automatically
+
+### Option 4: Traditional Web Hosting
+
+1. **Build the project:**
+   ```bash
+   npm run build
+   ```
+
+2. **Upload build folder:**
+   - Upload contents of `build/` folder to your web server
+   - Ensure your server is configured for Single Page Applications
+
+## 🎨 Customization
+
+### Theme Colors
+Edit CSS variables in `src/App.css`:
+```css
+:root {
+  --brand-teal: #02A39e;
+  --premium-gold: #FFD700;
+  --elegant-bronze: #CD7F32;
+}
+```
+
+### Services Content
+Update services data in `src/App.js`:
+```javascript
+const services = {
+  production: [...],
+  ai: [...]
+};
+```
+
+### Contact Information
+Update contact details in the contact section of `src/App.js`.
+
+## 📱 Mobile Responsiveness
+
+The website is fully responsive with:
+- Mobile-first design approach
+- Hamburger navigation menu
+- Optimized touch interactions
+- Fluid typography with clamp()
+- Responsive grid layouts
+
+## 🔧 Performance Optimization
+
+- **Code Splitting:** React lazy loading
+- **Image Optimization:** Optimized assets
+- **CSS Optimization:** Purged unused styles
+- **Animation Performance:** Hardware-accelerated transforms
+- **Bundle Analysis:** Optimized dependencies
+
+## 🐛 Troubleshooting
+
+### Common Issues:
+
+**1. Build Fails:**
+```bash
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
+
+**2. Animation Issues:**
+- Ensure GSAP licenses are properly configured
+- Check for conflicting CSS animations
+
+**3. Deployment Issues:**
+```bash
+# Verify homepage in package.json
+"homepage": "https://yourusername.github.io/content-studio-website"
+```
+
+**4. Local Development Issues:**
+```bash
+# Check Node.js version
+node --version
+
+# Update dependencies
+npm update
+```
+
+## 📞 Support & Contact
+
+**Content Studio Contact:**
+- **Email:** info@contentstudio.co.in
+- **Phone:** +91 8920249869
+- **Location:** Gurugram, Haryana, India
+
+**Development Support:**
+- Create an issue in this repository
+- Check existing issues for solutions
+
+## 📄 License
+
+This project is proprietary software for Content Studio. All rights reserved.
+
+## 🚀 Future Enhancements
+
+- [ ] Blog integration
+- [ ] Portfolio gallery with video previews
+- [ ] Online booking system
+- [ ] Client portal
+- [ ] Advanced animations
+- [ ] 3D elements integration
+
+---
+
+**Built with ❤️ by the Content Studio Team**
+
+🔗 **Live Site:** [https://sumeetprashant.github.io/content-studio-website/](https://sumeetprashant.github.io/content-studio-website/)

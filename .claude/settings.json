@@ -1,0 +1,323 @@
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allowedTools": [
+      "Edit",
+      "MultiEdit", 
+      "Write",
+      "Read",
+      "LS",
+      "Glob",
+      "Grep",
+      "Task",
+      "Bash(npm:*)",
+      "Bash(yarn:*)",
+      "Bash(git:*)",
+      "Bash(node:*)",
+      "Bash(npx:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(cd:*)",
+      "Bash(pwd:*)",
+      "Bash(cat:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(tree:*)",
+      "Bash(lsof:*)",
+      "Bash(ps:*)",
+      "Bash(kill:*)",
+      "Bash(sleep:*)",
+      "Bash(echo:*)",
+      "Bash(touch:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(wc:*)"
+    ],
+    "disallowedTools": [
+      "Bash(rm:*)",
+      "Bash(rmdir:*)",
+      "Bash(sudo:*)",
+      "Bash(su:*)",
+      "Bash(chmod:*)",
+      "Bash(chown:*)",
+      "Bash(dd:*)",
+      "Bash(format:*)",
+      "Bash(fdisk:*)",
+      "Bash(mkfs:*)",
+      "Bash(mount:*)",
+      "Bash(umount:*)",
+      "Bash(systemctl:*)",
+      "Bash(service:*)",
+      "Bash(crontab:*)",
+      "Bash(passwd:*)",
+      "Bash(useradd:*)",
+      "Bash(userdel:*)",
+      "Bash(groupadd:*)",
+      "Bash(groupdel:*)"
+    ],
+    "allowedPaths": [
+      "/src/**",
+      "/public/**",
+      "/.claude/**",
+      "/package.json",
+      "/package-lock.json",
+      "/yarn.lock",
+      "/craco.config.js",
+      "/postcss.config.js",
+      "/tailwind.config.js",
+      "/README.md",
+      "/build/**",
+      "/node_modules/**"
+    ],
+    "deniedPaths": [
+      "/etc/**",
+      "/var/**",
+      "/usr/**",
+      "/bin/**",
+      "/sbin/**",
+      "/boot/**",
+      "/sys/**",
+      "/proc/**",
+      "/dev/**",
+      "/tmp/**",
+      "/home/**/.ssh/**",
+      "/home/**/.aws/**",
+      "/home/**/.docker/**",
+      "**/.env",
+      "**/.env.local",
+      "**/.env.production",
+      "**/.git/config",
+      "**/.gitignore",
+      "**/node_modules/.bin/**"
+    ]
+  },
+  "environment": {
+    "NODE_ENV": "development",
+    "REACT_APP_ENV": "development",
+    "REACT_APP_BACKEND_URL": "http://localhost:3001",
+    "REACT_APP_GITHUB_PAGES_URL": "https://sumeetprashant.github.io/content-studio-website",
+    "REACT_APP_LOCAL_URL": "http://localhost:3000/content-studio-website",
+    "REACT_APP_BRAND_PRIMARY": "#02A39e",
+    "REACT_APP_BRAND_SECONDARY": "#40e0d0",
+    "REACT_APP_BRAND_ACCENT": "#87ceeb",
+    "REACT_APP_ANIMATION_DURATION_MAX": "0.3",
+    "REACT_APP_SCROLL_ANIMATION_DURATION": "0.5",
+    "REACT_APP_STAGGER_DELAY": "0.08",
+    "REACT_APP_PERFORMANCE_MODE": "optimized"
+  },
+  "workflow": {
+    "defaultCommands": {
+      "start": "npm start",
+      "build": "npm run build",
+      "test": "npm test",
+      "deploy": "npm run deploy",
+      "lint": "npm run lint",
+      "format": "npm run format"
+    },
+    "testUrl": "http://localhost:3000/content-studio-website",
+    "deployUrl": "https://sumeetprashant.github.io/content-studio-website",
+    "autoSave": true,
+    "autoFormat": false,
+    "gitAutoCommit": false
+  },
+  "development": {
+    "framework": "react",
+    "animationLibrary": "gsap",
+    "styling": "tailwind-css",
+    "buildTool": "craco",
+    "packageManager": "npm",
+    "hotReload": true,
+    "sourceMap": true,
+    "debugMode": false
+  },
+  "project": {
+    "name": "Content Studio Website",
+    "description": "Premium podcast and video production studio website",
+    "version": "1.0.0",
+    "repository": "https://github.com/sumeetprashant/content-studio-website",
+    "author": "Claude Code + Sumeet Prashant",
+    "license": "MIT",
+    "homepage": "https://sumeetprashant.github.io/content-studio-website"
+  },
+  "animations": {
+    "philosophy": "performance-over-complexity",
+    "maxDuration": 0.3,
+    "scrollAnimationDuration": 0.5,
+    "staggerDelay": 0.08,
+    "defaultEasing": "power2.out",
+    "triggerPoint": "top 75%",
+    "headerTriggerPoint": "top 85%",
+    "performanceTarget": "60fps",
+    "mobileOptimization": true,
+    "gpu-acceleration": true,
+    "preferredTransforms": ["translateX", "translateY", "scale", "opacity"],
+    "avoidTransforms": ["rotateX", "rotateY", "skew", "matrix3d"],
+    "scrollTriggerConfig": {
+      "start": "top 75%",
+      "end": "bottom 25%",
+      "scrub": false,
+      "pin": false
+    }
+  },
+  "brand": {
+    "colors": {
+      "primary": "#02A39e",
+      "secondary": "#40e0d0", 
+      "accent": "#87ceeb",
+      "tealAccent": "#20b2aa",
+      "deepTeal": "#008b8b"
+    },
+    "gradients": {
+      "primary": "linear-gradient(135deg, #02A39e 0%, #40e0d0 100%)",
+      "secondary": "linear-gradient(135deg, #40e0d0 0%, #87ceeb 100%)",
+      "text": "linear-gradient(135deg, #02A39e 0%, #40e0d0 50%, #87ceeb 100%)"
+    },
+    "typography": {
+      "headerFont": "DM Serif Display",
+      "bodyFont": "Outfit",
+      "weights": [100, 200, 300, 400, 500, 600, 700, 800, 900]
+    }
+  },
+  "security": {
+    "allowNetworkAccess": true,
+    "allowFileSystemAccess": true,
+    "allowScriptExecution": true,
+    "restrictedCommands": [
+      "rm -rf",
+      "sudo rm",
+      "format",
+      "fdisk",
+      "dd if=",
+      "chmod 777",
+      "chown -R",
+      "systemctl stop",
+      "service stop",
+      "kill -9",
+      "pkill -f",
+      "fuser -k",
+      "shutdown",
+      "reboot",
+      "init 0",
+      "init 6"
+    ],
+    "allowedNetworkDomains": [
+      "localhost",
+      "127.0.0.1",
+      "github.com",
+      "npmjs.com",
+      "fonts.googleapis.com",
+      "cdnjs.cloudflare.com",
+      "unpkg.com"
+    ],
+    "deniedNetworkDomains": [
+      "*.doubleclick.net",
+      "*.googlesyndication.com",
+      "*.facebook.com",
+      "*.twitter.com",
+      "*.instagram.com"
+    ]
+  },
+  "testing": {
+    "frameworks": ["react-testing-library", "jest"],
+    "testCommand": "npm test",
+    "testPattern": "**/*.test.js",
+    "coverageThreshold": 80,
+    "e2eFramework": "cypress",
+    "visualRegression": false,
+    "performanceTesting": true,
+    "accessibilityTesting": true,
+    "mobileDevices": ["iPhone 12", "iPad Pro", "Samsung Galaxy S21"],
+    "browsers": ["Chrome", "Firefox", "Safari", "Edge"]
+  },
+  "deployment": {
+    "platform": "github-pages",
+    "buildCommand": "npm run build",
+    "deployCommand": "npm run deploy",
+    "buildDirectory": "build",
+    "publicPath": "/content-studio-website/",
+    "environmentChecks": [
+      "localhost:3000 responsive",
+      "mobile compatibility",
+      "safari webkit support",
+      "60fps animation performance",
+      "form validation working",
+      "theme toggle functional"
+    ],
+    "preDeployChecks": [
+      "npm run build",
+      "bundle size analysis",
+      "lighthouse performance audit",
+      "cross-browser testing",
+      "mobile device testing"
+    ]
+  },
+  "performance": {
+    "budgets": {
+      "bundle": "2MB",
+      "individual": "500KB",
+      "images": "200KB",
+      "fonts": "100KB"
+    },
+    "optimization": {
+      "treeshaking": true,
+      "codeSplitting": true,
+      "compression": true,
+      "minification": true,
+      "imageOptimization": true
+    },
+    "monitoring": {
+      "fcp": "1.5s",
+      "lcp": "2.5s", 
+      "fid": "100ms",
+      "cls": "0.1",
+      "fps": "60fps"
+    }
+  },
+  "accessibility": {
+    "standards": ["WCAG 2.1 AA"],
+    "testing": true,
+    "colorContrast": "4.5:1",
+    "keyboardNavigation": true,
+    "screenReader": true,
+    "reducedMotion": true,
+    "focusManagement": true,
+    "altText": true,
+    "semanticHTML": true
+  },
+  "git": {
+    "commitFormat": "conventional",
+    "autoCommit": false,
+    "branchProtection": true,
+    "requiredChecks": ["build", "test"],
+    "commitTemplate": {
+      "type": "feat|fix|perf|style|refactor|docs|test",
+      "scope": "optional",
+      "description": "short description",
+      "body": "detailed explanation",
+      "footer": "> Generated with Claude Code\\n\\nCo-Authored-By: Claude <noreply@anthropic.com>"
+    }
+  },
+  "logging": {
+    "level": "info",
+    "enabled": true,
+    "format": "json",
+    "outputs": ["console", "file"],
+    "logFile": ".claude/logs/claude-code.log",
+    "maxFileSize": "10MB",
+    "maxFiles": 5
+  },
+  "ai": {
+    "model": "claude-sonnet-4",
+    "temperature": 0.7,
+    "maxTokens": 4000,
+    "contextWindow": 200000,
+    "systemPrompt": "You are working on a premium Content Studio website with React + GSAP + Tailwind CSS. Focus on performance, smooth animations (max 0.3s), and teal brand colors (#02A39e). Always test on localhost:3000 and maintain 60fps performance.",
+    "memoryEnabled": true,
+    "projectContext": ".claude/CLAUDE.md"
+  }
+}
